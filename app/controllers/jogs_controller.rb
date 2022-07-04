@@ -27,6 +27,32 @@ class JogsController < ApplicationController
     render json: @jogs
   end
 
+  def weekly_report
+    @weekly_jogs = []
+    total_distance = total_time = 0
+    if @current_user.regular_user?
+      @weekly_jogs = @current_user.jogs.where("created_at >= ?", Time.now - 7.days)
+      @weekly_jogs.each do |jog|
+        total_distance += jog.distance
+        total_time     += jog.duration
+      end
+      avg_speed    = (total_distance.to_f/total_time.to_f).round(2)
+      avg_distance = (total_distance/@weekly_jogs.count)
+      render json: {Average_speed_in_meter_per_second: avg_speed,
+                    Average_distance_in_meters: avg_distance,
+                    Number_of_jogs: @weekly_jogs.count
+                    }
+    end
+  end
+
+  def filter_from_to
+    @filtered_jogs = []
+    if @current_user.regular_user?
+      @filtered_jogs = @current_user.jogs.where("? <= created_at AND created_at <= ?", params[:from], params[:to])
+    end
+
+    render json: {FilteredJogs: @filtered_jogs}
+  end
 
   # GET /jogs/1
   def show
