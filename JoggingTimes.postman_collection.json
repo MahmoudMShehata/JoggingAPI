@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "6ce59065-999b-40e7-ac66-b0a4b5c90ab2",
+		"name": "JoggingTimes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21571104"
+	},
+	"item": [
+		{
+			"name": "Create jog",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 1,\n    \"duration\": 654,\n    \"distance\": 546,\n    \"date\": \"2022-05-05 02:56:15\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/jogs",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"jogs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all jogs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/jogs?from_date=2022-01-01&to_date=2022-01-02&user_id=1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"jogs"
+					],
+					"query": [
+						{
+							"key": "from_date",
+							"value": "2022-01-01"
+						},
+						{
+							"key": "to_date",
+							"value": "2022-01-02"
+						},
+						{
+							"key": "user_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get jog",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/jogs/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"jogs",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Jog",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "jwt",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3LCJjcmVhdGVkX2F0IjoiMjAyMi0wNy0wNCAxNDoyOTozOCArMDIwMCJ9.LitrvTV0W0Y8ZsNujcDHjFMRZhCa_lt7B_giF38R31A",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/jogs/6",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"jogs",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update jog",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "jwt",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNSwiY3JlYXRlZF9hdCI6IjIwMjItMDctMDQgMjA6MzM6MDIgKzAyMDAifQ.HnSJl2RI933fmMBayg5RZGHRnweyR1t_1UIuUZDKExo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"duration\": 5,\n    \"distance\": 68,\n    \"date\": \"2022-06-16T02:56:15.000Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/jogs/10",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"jogs",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/login?email=ahmed@test.com&password=123",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "ahmed@test.com"
+						},
+						{
+							"key": "password",
+							"value": "123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filter jogs from-to",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "jwt",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJjcmVhdGVkX2F0IjoiMjAyMi0wNy0wNCAxMzozOTowMiArMDIwMCJ9._DJkOAmYtDMcHRu6oNGNHwD85FZgjU4zRZbRrhuCrhw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"duration\": 5,\n    \"distance\": 68,\n    \"date\": \"2021-05-05T02:56:15.000Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/filterjogs?from=2022-06-11&to=2022-07-03",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"filterjogs"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2022-06-11"
+						},
+						{
+							"key": "to",
+							"value": "2022-07-03"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "weekly jogs report",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "jwt",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJjcmVhdGVkX2F0IjoiMjAyMi0wNy0wNCAxMzozOTowMiArMDIwMCJ9._DJkOAmYtDMcHRu6oNGNHwD85FZgjU4zRZbRrhuCrhw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"duration\": 5,\n    \"distance\": 68,\n    \"date\": \"2021-05-05T02:56:15.000Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/filterjogs?from=2022-06-11&to=2022-07-03",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"filterjogs"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2022-06-11"
+						},
+						{
+							"key": "to",
+							"value": "2022-07-03"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": {\n        \"name\": \"ahmed\",\n        \"email\": \"ahmed@test.com\",\n        \"user_type\": \"user_manager\",\n        \"password\": \"123\",\n        \"password_confirmation\": \"123\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": {\n        \"name\": \"hummus\",\n        \"email\": \"test@test.com\",\n        \"user_type\": \"reguler\",\n        \"password\": \"123\",\n        \"password_confirmation\": \"123\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "jwt",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3fQ.B4o3uuM9PffSX50Dv-Idupe9jAfw4AQYXINCXBOLicA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "jwt",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3LCJjcmVhdGVkX2F0IjoiMjAyMi0wNy0wNCAxNDo0NToxNiArMDIwMCJ9.QtNhtPh5_NX241MYb4Y7xAJkGYfeUmdGvDA0iXiUKLg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/users/10",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
