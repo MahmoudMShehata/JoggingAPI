@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :jogs
+  validates_uniqueness_of :email, scope: :email
+  validates_inclusion_of  :user_type, :in => ["regular", "user_manager", "admin"]
 
   def jwt_token
     payload = {user_id: id, created_at: Time.now}
